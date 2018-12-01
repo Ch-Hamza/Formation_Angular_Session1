@@ -1,0 +1,38 @@
+<div class="container">
+  <h3 *ngIf="isChecked">{{phoneName}}</h3>
+  <div class="mt-5">
+    <div class="form-group row">
+      <label for="exampleInputEmail1" class="col-sm-2 col-form-label">Phone Name</label>
+      <div class="col-sm-10">
+        <input #name [(ngModel)]="phoneName" type="text" class="form-control" id="exampleInputEmail1" placeholder="Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="exampleInputPassword1" class="col-sm-2 col-form-label">Phone Price</label>
+      <div class="col-sm-10">
+        <input #price type="text" class="form-control" id="exampleInputPassword1" placeholder="Price">
+      </div>
+    </div>
+    <div class="form-group row">
+        <label for="checkb" class="col-sm-2 col-form-label">Phone Price</label>
+        <div class="col-sm-10">
+          <input type="checkbox" (click)="checkBoxChecked($event)" class="form-control" id="checkb">
+        </div>
+    </div>
+    <div class="text-center">
+      <button style="width: 500px;" class="btn btn-primary mb-5" (click)="addPhone(name.value, price.value)">Submit</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let phone of phones">
+        <div class="card m-2">
+            <img class="card-img-top" src="https://ss7.vzw.com/is/image/VerizonWireless/iPhoneX-Svr?$device-lg$" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{phone.name}}</h5>
+              <p class="card-text">{{phone.price}}</p>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
